@@ -45,9 +45,9 @@ state={
     firebase.auth().createUserWithEmailAndPassword(this.state.email,this.state.password)
     .then(cred => {
       if(!cred){
-        console.log(cred)
+        
       }
-console.log(cred.user,'token')
+
 return firebase.firestore().collection('users').doc(cred.user.uid).set({
   
   username:this.state.username,
@@ -70,14 +70,14 @@ alert(err.message)
     e.preventDefault()
     firebase.auth().signInWithEmailAndPassword(this.state.loginEmail,this.state.loginPassword)
     .then(cred => {
-      console.log(cred,'credcdredcdred')
+      
     })
     .catch(err => {
       alert(err.message)
     })
   }
   render() {
-    console.log(this.state,'thishtihshtish')
+   
     return (
       <div>
        
