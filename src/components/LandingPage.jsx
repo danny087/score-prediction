@@ -44,6 +44,9 @@ state={
 
     firebase.auth().createUserWithEmailAndPassword(this.state.email,this.state.password)
     .then(cred => {
+      if(!cred){
+        console.log(cred)
+      }
 console.log(cred.user,'token')
 return firebase.firestore().collection('users').doc(cred.user.uid).set({
   
@@ -54,6 +57,12 @@ return firebase.firestore().collection('users').doc(cred.user.uid).set({
   weekScore:0
 })
     })
+    .catch((err) => {
+
+alert(err.message)
+    })
+    
+    
 
   }
 
@@ -62,6 +71,9 @@ return firebase.firestore().collection('users').doc(cred.user.uid).set({
     firebase.auth().signInWithEmailAndPassword(this.state.loginEmail,this.state.loginPassword)
     .then(cred => {
       console.log(cred,'credcdredcdred')
+    })
+    .catch(err => {
+      alert(err.message)
     })
   }
   render() {

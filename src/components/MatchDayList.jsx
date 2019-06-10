@@ -22,7 +22,8 @@ class MatchDayList extends Component {
         clickedMatchDay : null,
         userId : this.props.uid,
         weekScore: [],
-        borderLine:null
+        borderLine:null,
+        totalScore:0
       }
 
      
@@ -32,6 +33,7 @@ class MatchDayList extends Component {
    this.setState({
      userId:this.props.uid
    })
+
         getMatches().then(shit => {
         
           let arr = []
@@ -77,7 +79,8 @@ class MatchDayList extends Component {
      users.doc(uid).get().then((snapshot) => {
       
       this.setState({
-        weekScore:snapshot.data().weekscore
+        weekScore:snapshot.data().weekscore,
+        totalScore:snapshot.data().totalScore
       })
      })
           
@@ -122,6 +125,7 @@ const secondSchedule = secondHalfMatchDay.find((match,i) => {
     return (
     
       <div className={this.props.classes.container}>
+      <h1 className={this.props.classes.weekscore}>{`Total score ${this.state.totalScore}`}</h1>
           <Grid container spacing={2}>
           
           <Grid item md={6}>

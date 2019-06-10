@@ -258,14 +258,22 @@ return game.AwayTeamPrediction !== undefined
 
        
      },[])
-     
+     console.log(finals)
      var res = finals.filter(val => (val!==undefined) && (val!==null))
+     console.log(res)
+    
+     const totalScore = res.reduce((acc,curVal) => {
+
+acc += curVal.score
+return acc
+     },0)
     
      let users = firebase.firestore().collection('users')
      users.doc(uid).get().then(snapshot => {
       
        users.doc(uid).update({weekscore:res,
-      gameScore: getGameScore})
+      gameScore: getGameScore,
+    totalScore:totalScore})
      })
      
 
