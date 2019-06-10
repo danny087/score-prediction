@@ -8,6 +8,7 @@ import TableCell from '@material-ui/core/TableCell';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
+import { Route, Switch,Link, b } from "react-router-dom";
 import {
   Grid,
   Card,
@@ -37,21 +38,29 @@ class CreatedLeague extends Component {
     userId:this.props.uid,
     userInfo:null,
     member:null,
-    scoreCount : {}
+    scoreCount : {},
+    leagueExists:true
   }
   componentWillMount(){
 let uid = this.state.userId
 
+console.log(this.props.match.params.id)
+
 
 let replaceHash = this.props.match.params.id.replace(/\-/g, ' ')
-
+console.log(replaceHash)
 
 firebase.firestore().collection('leagues').where('leagueName', '==',this.props.match.params.id.replace(/\-/g, ' '))
 .get().then(snapshot => {
- 
+ console.log(snapshot.docs)
+ if(snapshot.docs.length === 0){
+   this.setState({
+     leagueExists:false
+   })
+ }
   let leagueMembersArr = []
   let leagueMembers = snapshot.docs.map(leagues => {
-    
+    console.log(leagues)
       leagues.data().members.map(member => {
        
         leagueMembersArr.push(member)
@@ -260,13 +269,16 @@ let userArr = []
 
 
 
-  
+  goBack(){
+    this.props.history.goBack()
+  }
   
   
   
   render() {
    
-   
+   console.log(this.state)
+   console.log(this.props)
     const createData = (score) => {
       return score;
     }
@@ -280,7 +292,7 @@ let userArr = []
     
     return (
       <div>
-        {this.state.userInfo !== null ? 
+        {this.state.userInfo !== null && this.state.leagueExists === true ? 
         
         
           <Paper className={this.props.classes.table}>
@@ -303,7 +315,7 @@ let userArr = []
                     {console.log(row)}
                     {row[1]}
                     </TableCell>
-                    <TableCell align="right">{row[2]}</TableCell>
+                    <TableCell align="right">{row[2]=== undefined ? 0 : row[2]}</TableCell>
                     <TableCell align="right">{ row[3] === undefined ? 0 : row[3]}</TableCell>
                     <TableCell align="right">{row[0]}</TableCell>
                     
@@ -313,11 +325,14 @@ let userArr = []
             </Table>
           </Paper>
         : null}
-      {this.state.member === false ?
+      {this.state.member === false && this.state.leagueExists === true ?
       <button onClick={(e) => this.handleClick(e)}>join</button>
       : this.state.member === true ? 
     <Button variant="contained" color="primary" onClick={(e) =>this.leaveLeague(e)}>leave league</Button>
-    :null}
+    :this.state.leagueExists === false ?
+  <div><h1>league doesnt exist</h1>
+  <button onClick={() => this.goBack()}>go back</button>
+  </div>:null}
       </div>
     )
     

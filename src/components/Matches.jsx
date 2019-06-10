@@ -439,7 +439,7 @@ let predictionChange = users.get().then((snapshot) => {
     })
    
     }
-    <button >submit predictions</button>
+    {this.state.finalResults < 1 ? <button >submit predictions</button>:<h1>you made no predictions this week</h1>}
     </form>
        :
 this.state.finalResults.length < 1 ?
