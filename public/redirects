@@ -1,2 +1,6 @@
 /* /index.html 200
 /home /
+/matches/:id
+/leagues
+/createleague
+/league/:id

@@ -263,10 +263,12 @@ return acc
             let weekScore = snapshot.data().weekscore.filter(week => {
             return week.matchDay === Number(this.props.match.params.id)
           })
-          
+          console.log(weekScore)
+          if(weekScore.length > 0) {
             this.setState({
               weekScore:weekScore[0].score
             })
+          }
           })
        
         
@@ -369,10 +371,10 @@ let users = firebase.firestore().collection('users')
   
 
      predictionChange(e,match){
-       
+      console.log(match,'{{{}}}}')
        let value = e.target.value
        let name = e.target.name
-     
+       console.log(match.matchId[name]=value,'###########')
 
      this.setState({
        predictedResults:[...this.state.predictedResults],

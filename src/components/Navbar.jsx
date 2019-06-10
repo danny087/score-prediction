@@ -56,7 +56,7 @@ handleClick(e){
 }
   
   render() {
-    let navButtons = ['home','Leagues']
+    let navButtons = ['home','leagues']
     
     return (
       <div className={this.props.classes.container}>
