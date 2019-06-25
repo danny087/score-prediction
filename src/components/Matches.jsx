@@ -439,7 +439,7 @@ let predictionChange = users.get().then((snapshot) => {
     })
    
     }
-    {this.state.finalResults < 1 ? <Button className={this.props.classes.changeButton} variant="contained" color="primary">submit predictions</Button>:<h1>you made no predictions this week</h1>}
+    {this.state.finalResults < 1 ? <button className={this.props.classes.changeButton} variant="contained" color="primary">submit predictions</button>:<h1>you made no predictions this week</h1>}
     </form>
        :
 this.state.finalResults.length < 1 ?

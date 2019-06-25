@@ -41,9 +41,21 @@ export default class App extends Component {
      
       if(user){
         
-        this.setState({
-          userUid:user.uid
-        })
+      let users = firebase.firestore().collection('users')
+       users.doc(user.uid).get().then((snapshot) => {
+if(snapshot.data() === undefined){
+  this.setState({
+    userUid:null
+   })
+}
+else{
+  this.setState({
+    userUid:user.uid 
+  })
+}
+       })
+        
+       
 
       } else {
        this.setState({
@@ -295,7 +307,7 @@ return acc
 
 
   render() {
-   
+   console.log(this.state)
     return (
      
       <div className="App">

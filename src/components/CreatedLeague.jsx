@@ -284,8 +284,13 @@ let userArr = []
     }
 
     const rows = this.state.userInfo !== null ? this.state.userInfo.map(user => {
-     
+     console.log(user)
+     if(user.rightPredictionCount === null){
+      return [user.totalScore,user.username,0,0]
+     }
+     else{
       return [user.totalScore,user.username,user.rightPredictionCount['3'],user.rightPredictionCount['5']]
+     }
       
     }) : null
   

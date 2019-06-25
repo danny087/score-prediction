@@ -15,7 +15,7 @@ import { withStyles } from "@material-ui/core/styles";
 
 const styles = {
   container:{
-    backgroundColor:'red',
+    backgroundColor:'blue',
     paddingBottom:'5%',
     paddingTop:'3%',
     

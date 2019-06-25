@@ -54,7 +54,8 @@ return firebase.firestore().collection('users').doc(cred.user.uid).set({
   predictedResults:[],
   leagues:[],
   totalScore:0,
-  weekScore:0
+  weekScore:0,
+  rightPredictionCount:null
 })
     })
     .catch((err) => {

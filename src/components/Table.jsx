@@ -124,9 +124,9 @@ userId:this.props.uid
         <div>
             <h1 className={this.props.classes.text}>search for existing league</h1>
             <div>
-        <input type="text" name="HomeTeamPrediction" onChange={(e) => this.handleChange(e)}></input>
+        <input type="text" name="HomeTeamPrediction" onChange={(e) => this.handleChange(e)} placeholder='Find league' data-cy="input"/> 
        
-        {this.state.inputValue !== null ? <Link to={`/league/${this.state.inputValue.replace(/\s+/g, '')}`}><button>search</button></Link>:null}
+        {this.state.inputValue !== null ? <Link to={`/league/${this.state.inputValue.replace(/\s+/g, '')}`}><button data-cy="findleague">search</button></Link>:null}
         </div>
         </div>
         <h1 className={this.props.classes.text}>create your own leauge</h1>
