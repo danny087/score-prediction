@@ -328,6 +328,10 @@ return acc
         })
      }
 
+     handlePredictionChange(e){
+      e.preventDefault()
+     }
+
      handleSubmit(e){
        e.preventDefault()
    
@@ -460,15 +464,18 @@ this.state.finalResults.length < 1 ?
    <Card className={this.props.classes.card}>
    <div>
    <h2 className={this.props.classes.text}>
+  
    {this.state.changePrediction.changePress === true && Number(prediction.matchId.id) == Number(this.state.changePrediction.matchId) && this.state.finalResultChange !== true ?
+   
    <input className={this.props.classes.input} onChange={(e) =>this.predictionChange(e,prediction)} type="text" name="HomeTeamPrediction" placeholder={prediction.matchId.HomeTeamPrediction !== undefined ? prediction.matchId.HomeTeamPrediction : null} required/>
    :null}{`${prediction.scheduledHomeTeam}  ${prediction.matchId.HomeTeamPrediction}
   
    vs
      ${prediction.matchId.AwayTeamPrediction} ${prediction.scheduledAwayTeam}` }{this.state.changePrediction.changePress === true && Number(prediction.matchId.id) == Number(this.state.changePrediction.matchId) ?
        <input className={this.props.classes.input} onChange={(e) =>this.predictionChange(e,prediction)} type="text" name="AwayTeamPrediction" placeholder={prediction.matchId.AwayTeamPrediction} required/>
-      
+       
        :null}
+     
      </h2>
      
     

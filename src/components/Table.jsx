@@ -24,7 +24,8 @@ const styles={
    
     
         padding:'1%',
-        marginBottom:'5%'
+        marginBottom:'5%',
+       
         
         
       },

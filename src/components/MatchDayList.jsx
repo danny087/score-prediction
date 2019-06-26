@@ -34,11 +34,11 @@ class MatchDayList extends Component {
      userId:this.props.uid
    })
 
-        getMatches().then(shit => {
+        getMatches().then(match => {
         
           let arr = []
           let status = []
-          shit.data.matches.map(status => {
+          match.data.matches.map(status => {
         
            
               arr.push({matchday:status.matchday,status:status.status})
@@ -128,7 +128,7 @@ const secondSchedule = secondHalfMatchDay.find((match,i) => {
       <h1 className={this.props.classes.weekscore}>{`Total score ${this.state.totalScore}`}</h1>
           <Grid container spacing={2}>
           
-          <Grid item md={6}>
+          <Grid item md={6} className={this.props.classes.grid}>
           
         {this.state.match !== null ?  firstHalfMatchDay.map((match,i) => {
           

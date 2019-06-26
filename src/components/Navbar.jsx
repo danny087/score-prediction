@@ -20,6 +20,7 @@ const styles = {
     paddingTop:'3%',
     
     
+    
   },
   links:{
     textDecoration:'none',
@@ -37,13 +38,12 @@ const styles = {
    
   },
   logout:{
-    
+    display: 'inlineBlock',
     
     
   },
   inline:{
-    display: 'inline',
-   
+    position: 'relative'
   }
 }
 

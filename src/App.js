@@ -270,9 +270,9 @@ return game.AwayTeamPrediction !== undefined
 
        
      },[])
-     console.log(finals)
+     
      var res = finals.filter(val => (val!==undefined) && (val!==null))
-     console.log(res)
+     
     
      const totalScore = res.reduce((acc,curVal) => {
 
@@ -307,7 +307,7 @@ return acc
 
 
   render() {
-   console.log(this.state)
+  
     return (
      
       <div className="App">

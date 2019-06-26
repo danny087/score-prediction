@@ -24,10 +24,17 @@ import {
 
 
 const styles ={
-table:{
+paper:{
   marginLeft:'25%',
   marginRight:'25%',
   marginTop:'5%'
+},
+container:{
+  width:'100%',
+
+},
+table:{
+  marginTop:'25%'
 }
 }
 
@@ -296,12 +303,12 @@ let userArr = []
   
     
     return (
-      <div>
+      <div className={this.props.classes.container}>
         {this.state.userInfo !== null && this.state.leagueExists === true ? 
         
         
-          <Paper className={this.props.classes.table}>
-            <Table>
+          <Paper className={this.props.classes.paper}>
+            <Table className={this.props.classes.table}>
               <TableHead>
                 <TableRow>
                   <TableCell>UserName</TableCell>
