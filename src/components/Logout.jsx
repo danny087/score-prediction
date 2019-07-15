@@ -12,7 +12,7 @@ button:{
   display: 'inline',
   marginBottom:'15%',
   marginLeft:'20%',
-  fontSize:'1.7em',
+  fontSize:'2.5vw',
   color:'white',
   fontFamily:'Maven Pro',
   

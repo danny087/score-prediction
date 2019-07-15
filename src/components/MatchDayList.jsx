@@ -40,7 +40,7 @@ class MatchDayList extends Component {
           let status = []
           match.data.matches.map(status => {
         
-           
+           console.log(status,'%%%%%%%%%%%%%%%%%%%%%%')
               arr.push({matchday:status.matchday,status:status.status})
               
            
@@ -126,7 +126,7 @@ const secondSchedule = secondHalfMatchDay.find((match,i) => {
     
       <div className={this.props.classes.container}>
       <h1 className={this.props.classes.weekscore}>{`Total score ${this.state.totalScore}`}</h1>
-          <Grid container spacing={2}>
+          <Grid container >
           
           <Grid item md={6} className={this.props.classes.grid}>
           
@@ -180,7 +180,7 @@ const secondSchedule = secondHalfMatchDay.find((match,i) => {
 
 const styles = {
 grid:{
-
+width:'100%'
 },
 card:{
 marginTop:'5%',

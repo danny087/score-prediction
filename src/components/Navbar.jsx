@@ -18,6 +18,9 @@ const styles = {
     backgroundColor:'blue',
     paddingBottom:'5%',
     paddingTop:'3%',
+    width: '100%',
+    display: 'inlineBlock',
+    padding: '0'
     
     
     
@@ -25,20 +28,21 @@ const styles = {
   links:{
     textDecoration:'none',
     margin:'9%',
-    fontSize:'1.7em',
+    fontSize:'2.5vw',
     color:'white',
     fontFamily:'Maven Pro',
     marginTop:'50%',
     display: 'inlineBlock',
-    minHeight: '50px',
+    minHeight: '4%',
     height: 'auto',
-    width: '500px'
+    width: 'auto'
     
     
    
   },
   logout:{
     display: 'inlineBlock',
+    
     
     
   },

@@ -26,8 +26,8 @@ const styles = {
  
   
    padding:'1%',
-   marginBottom:'5%'
-  
+   marginBottom:'5%',
+   fontSize:'1vw'
   
  },
  card : {
@@ -37,12 +37,14 @@ const styles = {
   marginRight:'20%',
   paddingTop:'-5%',
   paddingBottom:'-5%',
+  fontSize:'1vw',
+  
  
  
  },
  text:{
    fontFamily:'Maven Pro',
-   fontSize:'1.5em',
+   fontSize:'1.5vw',
    marginTop:'5%'
   
  },
@@ -53,7 +55,7 @@ const styles = {
    width: '5%',
    margin:'3.5%',
    fontWeight: '500',
-   fontSize: '1.3em',
+   fontSize: '1.5vw',
    textAlign: 'center',
   
  },
@@ -61,8 +63,8 @@ const styles = {
   backgroundColor:'gold',
   marginTop:'2%',
   marginBottom:'2%',
- marginLeft: '25%',
- marginRight:'25%',
+ marginLeft: '20%',
+ marginRight:'20%',
  paddingTop:'-5%',
  paddingBottom:'-5%'
 },
@@ -70,8 +72,8 @@ yellowCard:{
   backgroundColor:'lightGreen',
   marginTop:'2%',
   marginBottom:'2%',
- marginLeft: '25%',
- marginRight:'25%',
+ marginLeft: '20%',
+ marginRight:'20%',
  paddingTop:'-5%',
  paddingBottom:'-5%'
 },
@@ -79,10 +81,14 @@ redCard:{
   backgroundColor:'pink',
   marginTop:'2%',
   marginBottom:'2%',
- marginLeft: '25%',
- marginRight:'25%',
+ marginLeft: '20%',
+ marginRight:'20%',
  paddingTop:'-5%',
  paddingBottom:'-5%'
+},
+CardContent:{
+// width:'100%'
+fontSize:'2vw',
 },
 
 }
@@ -260,6 +266,7 @@ return acc
           let users = firebase.firestore().collection('users')
           
            users.doc(uid).get().then(snapshot => {
+
             let weekScore = snapshot.data().weekscore.filter(week => {
             return week.matchDay === Number(this.props.match.params.id)
           })
@@ -433,9 +440,10 @@ let predictionChange = users.get().then((snapshot) => {
      <div>{match.matchDay == this.props.match.params.id ?
       
       <Card className={this.props.classes.card}>
-       
+       <div className = {this.props.match.CardContent}>
       {match.scheduledHomeTeam}<input className={this.props.classes.input} onChange={(e) =>this.handleChange(e,match.matchId)} type="text" name="HomeTeamPrediction" required/>
       {match.scheduledAwayTeam}<input className={this.props.classes.input} onChange={(e) =>this.handleChange(e,match.matchId)} type="text" name="AwayTeamPrediction"matchid="@" required/>
+      </div>
       </Card>
      
       :null}</div>
@@ -527,7 +535,7 @@ this.state.finalResults.length < 1 ?
              </Card>
              <Card className={result.score === 3 ? this.props.classes.yellowCard : result.score === 5 ? this.props.classes.greenCard: result.score === 0 ? this.props.classes.redCard: this.props.classes.card}>
 
-             <CardContent>
+             <CardContent className={this.props.classes.card}>
              <h1>Final Result</h1>
              <h2>{`${result.HomeTeamName} ${result.HomeTeamPrediction} vs ${result.AwayTeamName} ${result.AwayTeamPrediction}`}</h2>
              <h1 >{`${result.score} points`}</h1>

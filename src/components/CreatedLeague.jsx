@@ -27,14 +27,27 @@ const styles ={
 paper:{
   marginLeft:'25%',
   marginRight:'25%',
-  marginTop:'5%'
+  marginTop:'5%',
+  width:'50%',
+  fontSize:'0.5vw'
 },
 container:{
   width:'100%',
-
+  fontSize:'0.5vw'
 },
 table:{
-  marginTop:'25%'
+  marginTop:'10%',
+  fontSize:'0.5vw',
+  display: 'inlineBlock',
+  tableLayout:'fixed'
+  
+},
+tableBody:{
+  fontSize:'0.5vw'
+},
+tableCell:{
+  paddingRight: '5',
+    paddingLeft: '4'
 }
 }
 
@@ -306,36 +319,37 @@ let userArr = []
       <div className={this.props.classes.container}>
         {this.state.userInfo !== null && this.state.leagueExists === true ? 
         
-        
+        <Grid item md={12}>
           <Paper className={this.props.classes.paper}>
             <Table className={this.props.classes.table}>
               <TableHead>
                 <TableRow>
-                  <TableCell>UserName</TableCell>
-                  <TableCell align="right">Right Result</TableCell>
-                  <TableCell align="right">Right Score</TableCell>
-                  <TableCell align="right">Total Score</TableCell>
+                  <TableCell className={this.props.match.tableCell} >UserName</TableCell>
+                  <TableCell  align="right">Right Result</TableCell>
+                  <TableCell  align="right">Right Score</TableCell>
+                  <TableCell  align="right">Total Score</TableCell>
                   
                 </TableRow>
               </TableHead>
-              <TableBody>
+              <TableBody className={this.props.match.tableBody}>
                 {rows.map(row => (
                   
                   <TableRow >
                     
-                    <TableCell component="th" scope="row">
+                    <TableCell className={this.props.match.tableCell} component="th" scope="row">
                     {console.log(row)}
                     {row[1]}
                     </TableCell>
-                    <TableCell align="right">{row[2]=== undefined ? 0 : row[2]}</TableCell>
-                    <TableCell align="right">{ row[3] === undefined ? 0 : row[3]}</TableCell>
-                    <TableCell align="right">{row[0]}</TableCell>
+                    <TableCell  align="right">{row[2]=== undefined ? 0 : row[2]}</TableCell>
+                    <TableCell  align="right">{ row[3] === undefined ? 0 : row[3]}</TableCell>
+                    <TableCell  align="right">{row[0]}</TableCell>
                     
                   </TableRow>
                 ))}
               </TableBody>
             </Table>
           </Paper>
+          </Grid>
         : null}
       {this.state.member === false && this.state.leagueExists === true ?
       <button onClick={(e) => this.handleClick(e)}>join</button>
