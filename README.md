@@ -1,8 +1,8 @@
 
 
-## Score-predicter
+## Score-predictor
 
-With score predicter you can predicted every matchday premier league game and earn points for every correct result and scoreline.
+With score-predictor you can predicted every matchday premier league game and earn points for every correct result and scoreline.
 
 If you predicted the right scoreline you will earn 5 points.
 
@@ -27,6 +27,6 @@ npm start
 
 ### `known issues`
 
-I am using the free plan of my api so when to many requests are made, a 429 error will occur, wait for about 20 seconds and you can start to use the app again.
+I am using the free plan of my API so when to many requests are made, a 429 error will occur, wait for about 20 seconds and you can start to use the app again.
 
 
